@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API = "http://localhost:5000/api";
+const API = "https://future-fs-02-wt3r.onrender.com/api";
 
 const STATUS_NEXT = { new: "contacted", contacted: "converted" };
 const STATUS_BTN = { new: "Mark Contacted", contacted: "Mark Converted", converted: "Converted" };
