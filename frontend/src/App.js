@@ -152,22 +152,29 @@ export default function App() {
 
       <div style={{ padding: 24, maxWidth: 1100, margin: "0 auto" }}>
         {/* Stats */}
-        <div style={{ display: "flex", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
-          {[
-            { l: "Total Leads", v: stats.total,     dot: "#6366F1" },
-            { l: "New",         v: stats.new,        dot: "#3B82F6" },
-            { l: "Contacted",   v: stats.contacted,  dot: "#F59E0B" },
-            { l: "Converted",   v: stats.converted,  dot: "#10B981" },
-          ].map(s => (
-            <div key={s.l} style={{ background: "#fff", borderRadius: 14, border: "1px solid #E2E8F0", padding: "16px 20px", flex: 1, minWidth: 120 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                <span style={{ fontSize: 12, color: "#94A3B8", fontWeight: 500 }}>{s.l}</span>
-                <span style={{ width: 8, height: 8, borderRadius: "50%", background: s.dot, display: "block" }} />
-              </div>
-              <span style={{ fontSize: 30, fontWeight: 700 }}>{s.v}</span>
-            </div>
-          ))}
-        </div>
+        
+<div style={{ display: "flex", gap: 16, marginBottom: 24, flexWrap: "wrap" }}>
+  {[
+    { l: "Total Leads", v: stats.total,    dot: "#6366F1", pct: 100 },
+    { l: "New",         v: stats.new,       dot: "#378ADD", pct: stats.total ? Math.round((stats.new / stats.total) * 100) : 0 },
+    { l: "Contacted",   v: stats.contacted, dot: "#EF9F27", pct: stats.total ? Math.round((stats.contacted / stats.total) * 100) : 0 },
+    { l: "Converted",   v: stats.converted, dot: "#639922", pct: stats.total ? Math.round((stats.converted / stats.total) * 100) : 0 },
+  ].map(s => (
+    <div key={s.l} style={{ background: "#fff", borderRadius: 14, border: "1px solid #E2E8F0", padding: "16px 20px", flex: 1, minWidth: 120 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+        <span style={{ fontSize: 12, color: "#94A3B8", fontWeight: 500 }}>{s.l}</span>
+        <span style={{ width: 8, height: 8, borderRadius: "50%", background: s.dot, display: "block" }} />
+      </div>
+      <span style={{ fontSize: 30, fontWeight: 700 }}>{s.v}</span>
+      <div style={{ fontSize: 12, color: s.dot, marginTop: 4, fontWeight: 600 }}>
+        {s.pct}% of total
+      </div>
+      <div style={{ marginTop: 8, background: "#F1F5F9", borderRadius: 4, height: 5 }}>
+        <div style={{ width: `${s.pct}%`, height: 5, background: s.dot, borderRadius: 4, transition: "width 0.5s ease" }} />
+      </div>
+    </div>
+  ))}
+</div>
 
         <div style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
           {/* Main Table */}
