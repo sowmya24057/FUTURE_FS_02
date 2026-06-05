@@ -106,14 +106,6 @@ App opens at **http://localhost:3000** 🎉
 
 ---
 
-## 🔑 Login Credentials
-
-| Username | Password |
-|----------|----------|
-| admin    | admin123 |
-
----
-
 ## 🔌 API Endpoints
 
 | Method | Endpoint | Description |
@@ -150,8 +142,4 @@ App opens at **http://localhost:3000** 🎉
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sowmya24057)
 
----
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
